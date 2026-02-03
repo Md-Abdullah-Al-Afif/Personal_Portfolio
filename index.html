@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD. ABDULLAH AL AFIF | CSE Student & Digital Marketer</title>
+    <meta name="description" content="Professional portfolio of MD. ABDULLAH AL AFIF - Computer Science & Engineering student specializing in digital marketing, web development, and research.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --color-primary: #1f242d;
+            --color-primary-light: #2a3141;
+            --color-accent: #7cf03d;
+            --color-accent-dark: #5fb02f;
+            --color-bg-dark: #0f172a;
+            --color-bg-card: #1e293b;
+            --color-text-primary: #f1f5f9;
+            --color-text-secondary: #94a3b8;
+            --color-text-muted: #64748b;
+            --color-border: #334155;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .accent-text {
+            color: var(--color-accent);
+        }
+        
+        .accent-btn {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .accent-btn:hover {
+            box-shadow: 0 0 10px var(--color-accent);
+            transform: translateY(-2px);
+        }
+        
+        .accent-btn-outline {
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            transition: all 0.3s ease;
+        }
+        
+        .accent-btn-outline:hover {
+            background: transparent;
+            color: var(--color-accent);
+            box-shadow: 0 0 10px var(--color-accent);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .skill-progress {
+            animation: fillProgress 1.5s ease-out forwards;
+        }
+        
+        @keyframes fillProgress {
+            from { width: 0; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes barPulse {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.2); }
+        }
+        
+        .animated-bar {
+            animation: barPulse 3s ease-in-out infinite;
+        }
+        
+        .timeline-dot {
+            position: relative;
+        }
+        
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid #0f172a;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-dot::before {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: rgba(124, 240, 61, 0.2);
+            border-color: var(--color-accent);
+        }
+        
+        .social-icon:hover i {
+            color: var(--color-accent);
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(124, 240, 61, 0.1);
+        }
+        
+        /* Text Animation Styles - from second code */
+        .animated-text span {
+            position: relative;
+            display: inline-block;
+            color: transparent;
+            -webkit-text-stroke: .7px var(--color-accent);
+            animation: display-text 16s linear infinite;
+            animation-delay: calc(-4s*var(--i));
+        }
+        
+        @keyframes display-text {
+            25%, 100% {
+                display: none;
+            }
+        }
+        
+        .animated-text span::before {
+            content: attr(data-text);
+            position: absolute;
+            width: 0;
+            border-right: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: fill-text 4s linear infinite;
+        }
+        
+        @keyframes fill-text {
+            10%, 100% {
+                width: 0;
+            }
+            70%, 90% {
+                width: 100%;
+            }
+        }
+        
+        .hero-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            border: 4px solid rgba(124, 240, 61, 0.2);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-image-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(124, 240, 61, 0.3), transparent 70%);
+            opacity: 0.7;
+            z-index: -1;
+        }
+        
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(124, 240, 61, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(124, 240, 61, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(124, 240, 61, 0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#home" class="text-xl font-bold accent-text">
+                    &lt;AFIF/&gt;
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#home" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Home</a>
+                    <a href="#about" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">About</a>
+                    <a href="#skills" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Skills</a>
+                    <a href="#experience" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Experience</a>
+                    <a href="#ventures" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Ventures</a>
+                    <a href="#projects" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Projects</a>
+                    <!--<a href="#publications" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Publications</a>-->
+                    <a href="#certifications" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Certifications</a>
+                    <!--<a href="#resources" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Resources</a>-->
+                    <a href="#education" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Education</a>
+                    <a href="#memberships" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Memberships</a>
+                    <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:text-emerald-400">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-300">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobileNav" class="hidden fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center bg-slate-900 bg-opacity-95 backdrop-blur-sm z-40 overflow-y-auto">
+                <button id="mobileCloseBtn" class="absolute top-4 right-4 text-white text-3xl hover:text-emerald-400 z-50">
+                    ✕
+                </button>
+                <ul class="flex flex-col gap-6 text-white text-xl text-center px-4">
+                    <li><a href="#home" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Home</a></li>
+                    <li><a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">About</a></li>
+                    <li><a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Skills</a></li>
+                    <li><a href="#experience" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Experience</a></li>
+                    <li><a href="#ventures" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Ventures</a></li>
+                    <li><a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Projects</a></li>
+                    <li><a href="#certifications" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Certifications</a></li>
+                    <li><a href="#education" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Education</a></li>
+                    <li><a href="#memberships" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Memberships</a></li>
+                    <li><a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg hover:text-emerald-400">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
+            
+            <!-- Animated Bars -->
+            <div class="absolute bottom-0 left-0 right-0 flex items-end justify-center gap-2 px-4 pb-8 opacity-20">
+                <div class="w-12 md:w-16 bg-gradient-to-t from-emerald-400 to-cyan-400 rounded-t-lg animated-bar" style="height: 60px; animation-delay: 0s;"></div>
+                <div class="w-12 md:w-16 bg-gradient-to-t from-emerald-400 to-cyan-400 rounded-t-lg animated-bar" style="height: 120px; animation-delay: 0.15s;"></div>
+                <div class="w-12 md:w-16 bg-gradient-to-t from-emerald-400 to-cyan-400 rounded-t-lg animated-bar" style="height: 100px; animation-delay: 0.3s;"></div>
+                <div class="w-12 md:w-16 bg-gradient-to-t from-emerald-400 to-cyan-400 rounded-t-lg animated-bar" style="height: 140px; animation-delay: 0.45s;"></div>
+                <div class="w-12 md:w-16 bg-gradient-to-t from-emerald-400 to-cyan-400 rounded-t-lg animated-bar" style="height: 90px; animation-delay: 0.6s;"></div>
+                <div class="w-12 md:w-16 bg-gradient-to-t from-emerald-400 to-cyan-400 rounded-t-lg animated-bar" style="height: 110px; animation-delay: 0.75s;"></div>
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="space-y-6 fade-in">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-sm font-medium">
+                        <span class="pulse-dot"></span>
+                        Available for opportunities
+                    </div>
+
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">
+                        <span class="text-white">Md. ABDULLAH</span>
+                        <br />
+                        <span class="accent-text">AL AFIF</span>
+                    </h1>
+
+                    <!-- Updated Text Animation - from second code -->
+                    <div class="text-xl md:text-2xl text-slate-300 font-medium h-8">
+                        I am a 
+                        <span class="animated-text">
+                            <span style="--i:4;" data-text="Student">Student</span>
+                            <span style="--i:3;" data-text="Learner">Learner</span>
+                            <span style="--i:2;" data-text="Web Developer">Web Developer</span>
+                            <span style="--i:1;" data-text="Digital Marketer">Digital Marketer</span>
+                        </span>
+                    </div>
+
+                    <div class="flex items-center gap-2 text-slate-400">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>Southeast University, Dhaka, Bangladesh</span>
+                    </div>
+
+                    <p class="text-slate-400 text-lg leading-relaxed max-w-xl">
+                        A dedicated Computer Science & Engineering student with a passion for technology and digital innovation. 
+                        Experienced in digital marketing, affiliate partnerships, and web development.
+                    </p>
+
+                    <!-- CTA Buttons - Removed View Experience button -->
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 accent-btn font-semibold rounded-lg">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            Get In Touch
+                        </a>
+                        <a href="Assets/cv.pdf" id="downloadCV" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#7cf03d]/70 text-[#7cf03d] font-semibold rounded-lg hover:bg-[#7cf03d]/10 transition-all">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            Open CV
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex gap-4 pt-4">
+                        <a href="https://github.com/Md-Abdullah-Al-Afif" class="social-icon w-12 h-12 flex items-center justify-center rounded-lg bg-slate-800/50 border border-slate-700 text-slate-400">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/md-abdullah-al-afif/" class="social-icon w-12 h-12 flex items-center justify-center rounded-lg bg-slate-800/50 border border-slate-700 text-slate-400">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://x.com/A_A_Afif" class="social-icon w-12 h-12 flex items-center justify-center rounded-lg bg-slate-800/50 border border-slate-700 text-slate-400">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.facebook.com/md.abdullahalafif.official" class="social-icon w-12 h-12 flex items-center justify-center rounded-lg bg-slate-800/50 border border-slate-700 text-slate-400">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Section - Using the style from second version -->
+                <div class="fade-in" style="animation-delay: 0.3s;">
+                    <div class="relative w-full max-w-md mx-auto">
+                        <!-- Glowing Background -->
+                        <div class="hero-image-glow"></div>
+                        
+                        <!-- Image Container -->
+                        <div class="hero-image-container">
+                            <div class="w-full aspect-square bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                                <img src="Assets/afif.png" alt="MD. Abdullah Al Afif" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- Decorative Elements -->
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-emerald-400/20 rounded-full blur-xl"></div>
+                        <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-cyan-400/20 rounded-full blur-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">About Me</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Passionate about technology, marketing, and continuous learning
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white">My Journey</h3>
+                    <div class="space-y-4 text-slate-300 leading-relaxed">
+                        <p>
+                            Currently pursuing my Bachelor's degree in Computer Science & Engineering at Southeast University, 
+                            I am deeply passionate about the intersection of technology and business. My academic journey has 
+                            equipped me with strong programming fundamentals, while my practical experience in digital marketing 
+                            has given me a unique perspective on how technology drives modern business growth.
+                        </p>
+                        <p>
+                            I believe in the power of continuous learning and have actively sought opportunities to expand my 
+                            skill set beyond the classroom. Through various certifications and hands-on projects, I have developed 
+                            expertise in areas ranging from AI and programming to marketing and business development.
+                        </p>
+                        <p>
+                            My goal is to leverage my technical background and marketing experience to contribute meaningfully 
+                            to innovative projects, whether in research, software development, or digital transformation initiatives.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 card-hover">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center">
+                            <i data-lucide="book-open" class="text-emerald-400" size="24"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white">Research Interests</h4>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-slate-300">
+                            <i data-lucide="check-circle" class="text-emerald-400 mt-1 flex-shrink-0" size="18"></i>
+                            <span>Artificial Intelligence & Machine Learning</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-300">
+                            <i data-lucide="check-circle" class="text-emerald-400 mt-1 flex-shrink-0" size="18"></i>
+                            <span>Web Development & Software Engineering</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-300">
+                            <i data-lucide="check-circle" class="text-emerald-400 mt-1 flex-shrink-0" size="18"></i>
+                            <span>Digital Marketing & E-commerce</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-300">
+                            <i data-lucide="check-circle" class="text-emerald-400 mt-1 flex-shrink-0" size="18"></i>
+                            <span>Data Science & Analytics</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-300">
+                            <i data-lucide="check-circle" class="text-emerald-400 mt-1 flex-shrink-0" size="18"></i>
+                            <span>Human-Computer Interaction</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Skills & Expertise</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    A diverse skill set combining technical and marketing capabilities
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-emerald-400/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-400/20 transition-colors">
+                        <i data-lucide="message-circle" class="text-emerald-400" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Communication Skills</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Strong verbal and written communication abilities, effective presentation skills, and cross-functional collaboration.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Proficiency</span>
+                            <span class="text-emerald-400 font-semibold">80%</span>
+                        </div>
+                        <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div class="skill-progress h-full bg-emerald-400 rounded-full" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-emerald-400/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-400/20 transition-colors">
+                        <i data-lucide="mail" class="text-emerald-400" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Email Marketing</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Proficient in creating effective email campaigns, list management, and marketing automation strategies.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Proficiency</span>
+                            <span class="text-emerald-400 font-semibold">75%</span>
+                        </div>
+                        <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div class="skill-progress h-full bg-emerald-400 rounded-full" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-emerald-400/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-400/20 transition-colors">
+                        <i data-lucide="users" class="text-emerald-400" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Lead Generation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Experience in identifying prospects, nurturing leads, and converting opportunities into business growth.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Proficiency</span>
+                            <span class="text-emerald-400 font-semibold">80%</span>
+                        </div>
+                        <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div class="skill-progress h-full bg-emerald-400 rounded-full" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-emerald-400/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-400/20 transition-colors">
+                        <i data-lucide="share-2" class="text-emerald-400" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Social Media Marketing</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Strategic content creation, community management, and data-driven social media campaign execution.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Proficiency</span>
+                            <span class="text-emerald-400 font-semibold">90%</span>
+                        </div>
+                        <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div class="skill-progress h-full bg-emerald-400 rounded-full" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-emerald-400/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-400/20 transition-colors">
+                        <i data-lucide="globe" class="text-emerald-400" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Website Building</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">WordPress development, website customization, and creating responsive, user-friendly web experiences.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Proficiency</span>
+                            <span class="text-emerald-400 font-semibold">90%</span>
+                        </div>
+                        <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div class="skill-progress h-full bg-emerald-400 rounded-full" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-emerald-400/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-400/20 transition-colors">
+                        <i data-lucide="code" class="text-emerald-400" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Programming & Tech</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Fundamental programming knowledge in C, web technologies, and basic software development principles.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Proficiency</span>
+                            <span class="text-emerald-400 font-semibold">65%</span>
+                        </div>
+                        <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div class="skill-progress h-full bg-emerald-400 rounded-full" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Professional Experience</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Building expertise through hands-on industry experience
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-700 hidden sm:block"></div>
+
+                <div class="space-y-12">
+                    <div class="relative">
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-400 rounded-full -translate-x-1/2 md:-translate-x-1/2 mt-1.5 hidden sm:block"></div>
+
+                        <div class="md:grid md:grid-cols-2 gap-8">
+                            <div class="md:text-right">
+                                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                                    
+                                    <div class="flex items-start justify-between mb-4 flex-wrap gap-2 md:flex-row-reverse">
+                                        <div>
+                                            <h3 class="text-xl font-semibold text-white mb-1">
+                                                Affiliate Marketer
+                                            </h3>
+
+                                            <!-- Company name with logo -->
+                                            <div class="flex items-center gap-2">
+                                                <img
+                                                    src="Assets/Logo_10_minute_school.png"
+                                                    alt="10 Minute School Logo"
+                                                    class="w-10 h-10 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                                >
+                                                <p class="text-emerald-400 font-medium">
+                                                    10 Minute School
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-sm">
+                                            <span class="pulse-dot"></span>
+                                            Oct 2021 – Present
+                                        </span>
+                                    </div>
+
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Leading affiliate marketing initiatives for Bangladesh's largest online education platform. 
+                                        Responsible for promoting educational courses, driving student enrollments, and creating 
+                                        strategic content to maximize conversion rates.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="relative">
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-400 rounded-full -translate-x-1/2 md:-translate-x-1/2 mt-1.5 hidden sm:block"></div>
+
+                        <div class="md:grid md:grid-cols-2 gap-8">
+                            <div class="md:col-start-2">
+                                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                                    <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+                                        <div>
+                                            <h3 class="text-xl font-semibold text-white mb-1">Contributor – Marketing</h3>
+                                            <!-- Company name with logo -->
+                                            <div class="flex items-center gap-2 ">
+                                                <img
+                                                    src="Assets/Logo_10_minute_school.png"
+                                                    alt="10 Minute School Logo"
+                                                    class="w-10 h-10 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                                >
+                                                <p class="text-emerald-400 font-medium">
+                                                    10 Minute School
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-sm">
+                                            Sep 2021 – Apr 2022
+                                        </span>
+                                    </div>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Collaborated with the marketing team to develop and execute promotional strategies. 
+                                        Created engaging content for social media platforms and contributed to brand awareness initiatives.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-400 rounded-full -translate-x-1/2 md:-translate-x-1/2 mt-1.5 hidden sm:block"></div>
+
+                        <div class="md:grid md:grid-cols-2 gap-8">
+                            <div class="md:text-right">
+                                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                                    <div class="flex items-start justify-between mb-4 flex-wrap gap-2 md:flex-row-reverse">
+                                        <div>
+                                            <h3 class="text-xl font-semibold text-white mb-1">Affiliate Officer</h3>
+                                            <!-- Company name with logo -->
+                                            <div class="flex items-center gap-2">
+                                                <img
+                                                    src="Assets/Shikho.png"
+                                                    alt="Shikho Logo"
+                                                    class="w-10 h-10 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                                >
+                                                <p class="text-emerald-400 font-medium">
+                                                    Shikho
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-sm">
+                                            Jul 2022 – Jul 2023
+                                        </span>
+                                    </div>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Managed affiliate partnerships and promotional activities for one of Bangladesh's leading 
+                                        EdTech platforms. Focused on driving course sales through strategic marketing and analytics.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-400 rounded-full -translate-x-1/2 md:-translate-x-1/2 mt-1.5 hidden sm:block"></div>
+
+                        <div class="md:grid md:grid-cols-2 gap-8">
+                            <div class="md:col-start-2">
+                                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                                    <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+                                        <div>
+                                            <h3 class="text-xl font-semibold text-white mb-1">Affiliate Partner</h3>
+                                            <!-- Company name with logo -->
+                                            <div class="flex items-center gap-2">
+                                                <img
+                                                    src="assets/Physics_of_Stupid.jpg"
+                                                    alt="Physics of Stupid Logo"
+                                                    class="w-10 h-10 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                                >
+                                                <p class="text-emerald-400 font-medium">
+                                                    Physics of Stupid
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-sm">
+                                            Aug 2022 – Oct 2022
+                                        </span>
+                                    </div>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Partnered with an innovative educational content platform to promote science education 
+                                        through social media and content marketing.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventures Section -->
+    <section id="ventures" class="py-20 bg-slate-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Ventures & Business</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Exploring entrepreneurship and digital business opportunities
+                </p>
+            </div>
+
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 justify-center">
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 card-hover">
+    
+                    <!-- Logo + Name + Role -->
+                    <a href="https://shutweb.com" target="_blank" 
+                        class="flex items-start gap-4 mb-6 group">
+
+                            <!-- Logo -->
+                            <div class="flex items-center gap-2">
+                                <img
+                                    src="Assets/ShutWeb Logo.png"
+                                    alt="ShutWeb Logo"
+                                    class="w-16 h-16 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                    >
+                            </div>
+
+                            <!-- Name + Badge -->
+                            <div>
+                                <h3 class="text-xl font-semibold text-white group-hover:text-emerald-400 transition">
+                                    ShutWeb
+                                </h3>
+
+                                <span class="inline-flex items-center gap-2 px-3 py-1 mt-2 
+                                            bg-emerald-400/10 border border-emerald-400/20 
+                                            rounded-full text-emerald-400 text-sm">
+                                    Co-Founder
+                                </span>
+                            </div>
+                    </a>
+
+
+                    <!-- Description -->
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Co-founded ShutWeb, a digital solutions venture focused on web development, 
+                        business websites, and smart digital tools. We help individuals and small 
+                        businesses build a strong online presence through clean design, scalable 
+                        systems, and practical technology solutions.
+                    </p>
+
+                    <!-- Visit Button -->
+                    <a href="https://shutweb.com" target="_blank"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 
+                            border border-emerald-400/30 text-emerald-400 
+                            font-medium rounded-lg hover:bg-emerald-400/10 
+                            transition">
+                        Visit ShutWeb
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+
+                </div>
+                
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 card-hover">
+    
+                    <!-- Logo + Name + Role -->
+                    <a href="https://hexlen.com" target="_blank" 
+                        class="flex items-start gap-4 mb-6 group">
+
+                            <!-- Logo -->
+                            <div class="flex items-center gap-2">
+                                <img
+                                    src="Assets/Hexlen Final Logo.png"
+                                    alt="HexLen Logo"
+                                    class="w-16 h-16 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                    >
+                            </div>
+
+                            <!-- Name + Badge -->
+                            <div>
+                                <h3 class="text-xl font-semibold text-white group-hover:text-emerald-400 transition">
+                                    Hexlen
+                                </h3>
+
+                                <span class="inline-flex items-center gap-2 px-3 py-1 mt-2 
+                                            bg-emerald-400/10 border border-emerald-400/20 
+                                            rounded-full text-emerald-400 text-sm">
+                                    Owner
+                                </span>
+                            </div>
+                    </a>
+
+
+                    <!-- Description -->
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Owner of HexLen, a modern fashion business dedicated to crafting your signature look. HexLen blends contemporary design with timeless style, offering products that combine elegance, durability, and functionality. Focused on delivering a distinctive fashion experience, HexLen aims to set new standards in style and quality for modern consumers who value both aesthetics and everyday usability.
+                    </p>
+
+                    <!-- Visit Button -->
+                    <a href="https://hexlen.com" target="_blank"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 
+                            border border-emerald-400/30 text-emerald-400 
+                            font-medium rounded-lg hover:bg-emerald-400/10 
+                            transition">
+                        Visit HexLen
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Projects</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Academic and personal projects showcasing technical skills
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden card-hover">
+                    <div class="h-32 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border-b border-slate-700">
+                        <i data-lucide="layout" class="text-emerald-400" size="48"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Portfolio Website</h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            A responsive, modern portfolio website built from scratch using HTML5, CSS3, and minimal JavaScript. Features smooth scrolling, mobile-responsive design, and clean academic styling.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">HTML5</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">CSS3</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">JavaScript</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden card-hover">
+                    <div class="h-32 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border-b border-slate-700">
+                        <i data-lucide="shopping-cart" class="text-emerald-400" size="48"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">E-Commerce Landing Page</h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            Designed and developed a conversion-focused landing page for an e-commerce initiative. Implemented modern UI/UX principles with WordPress and custom CSS styling.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">WordPress</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">CSS</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">UI/UX</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">Marketing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden card-hover">
+                    <div class="h-32 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border-b border-slate-700">
+                        <i data-lucide="bot" class="text-emerald-400" size="48"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">AI Chatbot Interface</h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            Developed an interactive chatbot interface as part of AI coursework. Focused on natural language processing concepts and user interaction design.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">Python</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">AI</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">NLP</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">Interface</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden card-hover">
+                    <div class="h-32 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border-b border-slate-700">
+                        <i data-lucide="bar-chart-3" class="text-emerald-400" size="48"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Marketing Analytics Dashboard</h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            Created a data visualization dashboard for tracking affiliate marketing performance metrics. Integrated with analytics APIs to provide real-time insights.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">Data Analysis</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">Visualization</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">Marketing</span>
+                            <span class="px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-xs font-medium">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Publications Section 
+    <section id="publications" class="py-20 bg-slate-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Publications & Research</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Academic contributions and research endeavors
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <h3 class="text-lg font-semibold text-white italic flex-1">The Impact of Digital Marketing Strategies on EdTech Growth in Bangladesh</h3>
+                        <span class="px-3 py-1 bg-blue-400/20 text-blue-400 border border-blue-400/20 rounded-full text-xs font-semibold uppercase tracking-wider">
+                            In Progress
+                        </span>
+                    </div>
+                    <p class="text-slate-400 mb-2">Target: International Journal of Digital Marketing & E-commerce</p>
+                    <p class="text-slate-500 text-sm">MD. Abdullah Al Afif</p>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <h3 class="text-lg font-semibold text-white italic flex-1">Affiliate Marketing as a Revenue Model for Online Education Platforms</h3>
+                        <span class="px-3 py-1 bg-yellow-400/20 text-yellow-400 border border-yellow-400/20 rounded-full text-xs font-semibold uppercase tracking-wider">
+                            Under Review
+                        </span>
+                    </div>
+                    <p class="text-slate-400 mb-2">Target: Journal of Marketing & Consumer Behavior</p>
+                    <p class="text-slate-500 text-sm">MD. Abdullah Al Afif</p>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <h3 class="text-lg font-semibold text-white italic flex-1">A Comparative Study of Programming Education Methods in Developing Countries</h3>
+                        <span class="px-3 py-1 bg-blue-400/20 text-blue-400 border border-blue-400/20 rounded-full text-xs font-semibold uppercase tracking-wider">
+                            In Progress
+                        </span>
+                    </div>
+                    <p class="text-slate-400 mb-2">Target: ACM Conference on Computer Science Education</p>
+                    <p class="text-slate-500 text-sm">MD. Abdullah Al Afif, [Co-author]</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Certifications Section -->
+    
+
+
+    <section id="certifications" class="py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Certifications</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Professional certifications and verified credentials
+                </p>
+            </div>
+
+            <!-- Certifications List -->
+            <div id="certGrid" class="flex flex-col gap-6">
+
+                <!-- Certificate 1 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full1.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/AI+ Prompt Engineer Level 1™.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">AI+ Prompt Engineer Level 1™</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/AI_Certs.jpg" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">AI CERTs™</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 28 Jan, 2026 </p>
+                            <p><span class="text-slate-500">Expires:</span> 27 Jan, 2027</p>
+                            <p><span class="text-slate-500">Credential ID:</span> 43fbd94af689</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://verify.certs365.io/?=43fbd94af689" class="text-emerald-400 hover:underline">https://verify.certs365.io/?=43fbd94af689</a></p>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://verify.certs365.io/?=43fbd94af689" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full2.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/AI_Foundation_AICerts.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">AI+ Foundation™</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/AI_Certs.jpg" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">AI CERTs™</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 28 Jan, 2026</p>
+                            <p><span class="text-slate-500">Expires:</span> 27 Jan, 2027</p>
+                            <p><span class="text-slate-500">Credential ID:</span> 995a92d8572b</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://verify.certs365.io/?=995a92d8572b" class="text-emerald-400 hover:underline">https://verify.certs365.io/?=995a92d8572b</a></p>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://verify.certs365.io/?=995a92d8572b" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/AgentX.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">AI+ Foundation™</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/Netcom_Learning.jpg" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">NetCom Learning™</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 27 Jan, 2026</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span> 128166189763</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://verify.certs365.io/?=128166189763" class="text-emerald-400 hover:underline">https://verify.certs365.io/?=128166189763</a></p>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://verify.certs365.io/?=128166189763" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Certificates Example -->
+                <!-- Certificate 4 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/certificate-Md.-Abdullah-Al-Afif.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">AI CodeLab</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/LWS Logo.jpg" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">NetCom Learning™</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 8 Jan, 2026</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span> N/A</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://aicodelab.learnwithsumit.com/certificate/md.-abdullah-al-afif-1012-lws-aicodelab" class="text-emerald-400 hover:underline">https://aicodelab.learnwithsumit.com/certificate/md.-abdullah-al-afif-1012-lws-aicodelab</a></p>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://aicodelab.learnwithsumit.com/certificate/md.-abdullah-al-afif-1012-lws-aicodelab" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 5 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/Programing_Research_IEEECSSEUSBC.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            IEEE Computer Society SEU SBC Presents - Programming Contest & Research</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/ieeecsseu_logo.jfif" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">IEEE Computer Society SEU Student Branch Chapter™</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 26 Dec, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span> N/A</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> N/A</a></p>
+                        </div>
+                        <div class="flex gap-3">
+                            
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 6 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/LaTeX Unlocked - The Research Writing Workshop.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            LaTeX Unlocked - The Research Writing Workshop</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/ieeecsseu_logo.jfif" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">IEEE Computer Society SEU Student Branch Chapter™</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 17 Nov, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span> N/A</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> N/A</a></p>
+
+                        </div>
+                        <div class="flex gap-3">
+                            
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 7 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/Achievements _ Microsoft Learn.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            Craft effective prompts for Microsoft 365 Copilot</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/Microsoft.png" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">Microsoft</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 12 Jun, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span> N/A</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://learn.microsoft.com/api/achievements/share/en-us/MdAbdullahAlAfif/9YMGTM6U" class="text-emerald-400 hover:underline">https://learn.microsoft.com/api/achievements/share/en-us/MdAbdullahAlAfif/9YMGTM6U</a></p>                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://learn.microsoft.com/api/achievements/share/en-us/MdAbdullahAlAfif/9YMGTM6U" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- View More Button -->
+            <div class="text-center mt-12">
+                <button id="showMoreCerts" class="inline-flex items-center gap-2 px-6 py-3 border border-emerald-400/30 text-emerald-400 rounded-lg hover:bg-emerald-400/10 transition">
+                    View More Certificates
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section 
+    <section id="resources" class="py-20 bg-slate-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Recommended Resources</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Tools and platforms I personally use and recommend
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center card-hover">
+                    <div class="w-16 h-16 bg-emerald-400/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="graduation-cap" class="text-emerald-400" size="32"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">10 Minute School</h3>
+                    <p class="text-slate-400 text-sm mb-4">Bangladesh's largest online education platform offering courses across various disciplines.</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm group">
+                        Learn More
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center card-hover">
+                    <div class="w-16 h-16 bg-emerald-400/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="book-open" class="text-emerald-400" size="32"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Shikho</h3>
+                    <p class="text-slate-400 text-sm mb-4">Leading EdTech platform providing quality education and skill development courses.</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm group">
+                        Learn More
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center card-hover">
+                    <div class="w-16 h-16 bg-emerald-400/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="globe" class="text-emerald-400" size="32"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Hostinger</h3>
+                    <p class="text-slate-400 text-sm mb-4">Reliable web hosting for building professional websites and online portfolios.</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm group">
+                        Learn More
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center card-hover">
+                    <div class="w-16 h-16 bg-emerald-400/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="palette" class="text-emerald-400" size="32"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Canva Pro</h3>
+                    <p class="text-slate-400 text-sm mb-4">Design tool for creating professional marketing materials and social media content.</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm group">
+                        Learn More
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Education</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Academic background and qualifications
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-700 hidden sm:block"></div>
+
+                <div class="space-y-12">
+                    <div class="relative">
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-400 rounded-full -translate-x-1/2 md:-translate-x-1/2 mt-1.5 hidden sm:block"></div>
+
+                        <div class="md:grid md:grid-cols-2 gap-8">
+                            <div class="md:text-right">
+                                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                                    
+                                    <div class="flex items-start justify-between mb-4 flex-wrap gap-2 md:flex-row-reverse">
+                                        <div>
+                                            <h3 class="text-xl font-semibold text-white mb-1">
+                                                BSc in CSE
+                                            </h3>
+
+                                            <!-- Institute name with logo -->
+                                            <div class="flex items-center justify-end gap-2">
+                                                <img
+                                                    src="data:image/png;base64,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"
+                                                    alt="Southeast University Logo"
+                                                    class="w-10 h-10 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                                >
+                                                <p class="text-emerald-400 font-medium">
+                                                    Southeast University
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-sm">
+                                            <span class="pulse-dot"></span>
+                                            Oct 2024 – Present
+                                        </span>
+                                    </div>
+
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Currently pursuing a Bachelor of Science in Computer Science & Engineering at Southeast University.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="relative">
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-400 rounded-full -translate-x-1/2 md:-translate-x-1/2 mt-1.5 hidden sm:block"></div>
+
+                        <div class="md:grid md:grid-cols-2 gap-8">
+                            <div class="md:col-start-2">
+                                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                                    <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+                                        <div>
+                                            <h3 class="text-xl font-semibold text-white mb-1">HSC (Science)</h3>
+                                            <!-- Institute name with logo -->
+                                            <div class="flex items-center gap-2 ">
+                                                <img
+                                                    src="data:image/png;base64,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"
+                                                    alt="Sompara College Logo"
+                                                    class="w-10 h-10 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                                >
+                                                <p class="text-emerald-400 font-medium">
+                                                    Sompara College
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-sm">
+                                            Completed
+                                        </span>
+                                    </div>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Completed Higher Secondary Certificate (HSC) in Science with a GPA of 5.00/5.00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-400 rounded-full -translate-x-1/2 md:-translate-x-1/2 mt-1.5 hidden sm:block"></div>
+
+                        <div class="md:grid md:grid-cols-2 gap-8">
+                            <div class="md:text-right">
+                                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 card-hover">
+                                    <div class="flex items-start justify-between mb-4 flex-wrap gap-2 md:flex-row-reverse">
+                                        <div>
+                                            <h3 class="text-xl font-semibold text-white mb-1">SSC (Science)</h3>
+                                            <!-- Institute name with logo -->
+                                            <div class="flex items-center justify-end gap-2">
+                                                <img
+                                                    src="https://play-lh.googleusercontent.com/0mPjU1m4a6YqePGecV9RgiGZ4MoSr-xQGxm05CpzRYnFPLqGN7uUvnk7mEI9jY2mzco"
+                                                    alt="Shikho Logo"
+                                                    class="w-10 h-10 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                                >
+                                                <p class="text-emerald-400 font-medium">
+                                                    Sompara High School
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 rounded-full text-emerald-400 text-sm">
+                                            Completed
+                                        </span>
+                                    </div>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Completed Secondary School Certificate (SSC) in Science with a GPA of 4.78/5.00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="memberships" class="py-20 bg-slate-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Memberships</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Clubs, organizations, and community involvement
+                </p>
+            </div>
+
+            <!-- Membership Cards -->
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 justify-center">
+
+                <!-- SEU Computer Club -->
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 card-hover">
+
+                    <div class="flex items-start gap-4 mb-6">
+
+                        <!-- Icon / Logo -->
+                        <div class="w-14 h-14 bg-slate-700 rounded-lg flex items-center justify-center">
+                            <img
+                                src="Assets/SEUCC.jpg"
+                                alt="SEUCC Logo"
+                                class="w-14 h-14 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                >
+                        </div>
+
+                        <!-- Name + Badge -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">
+                                SEUCC
+                            </h3>
+
+                            <span class="inline-flex items-center gap-2 px-3 py-1 mt-2 
+                                        bg-emerald-400/10 border border-emerald-400/20 
+                                        rounded-full text-emerald-400 text-sm">
+                                General Member
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-slate-400 leading-relaxed">
+                        Active member of Southeast University Computer Club, engaging in
+                        programming activities, tech events, workshops, and collaborative learning.
+                    </p>
+
+                </div>
+
+                <!-- Scout -->
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 card-hover">
+
+                    <div class="flex items-start gap-4 mb-6">
+
+                        <!-- Icon / Logo -->
+                        <div class="w-14 h-14 bg-slate-700 rounded-lg flex items-center justify-center">
+                            <img
+                                src="Assets/Scout.png"
+                                alt="Scout Badge"
+                                class="w-14 h-14 bg-slate-700 p-[3px] rounded-lg object-contain"
+                                >
+                        </div>
+
+                        <!-- Name + Badge -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">
+                                Scout
+                            </h3>
+
+                            <span class="inline-flex items-center gap-2 px-3 py-1 mt-2 
+                                        bg-emerald-400/10 border border-emerald-400/20 
+                                        rounded-full text-emerald-400 text-sm">
+                                Scout Badge
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-slate-400 leading-relaxed">
+                        Participated in scouting activities focused on leadership, discipline,
+                        teamwork, and community service.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="accent-text">Get In Touch</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Let's connect and explore opportunities together
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Contact Information</h3>
+                        <p class="text-slate-400 leading-relaxed">
+                            I'm always open to discussing new opportunities, research collaborations, or just having a
+                            conversation about technology and innovation. Feel free to reach out!
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="text-emerald-400" size="20"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500 text-sm">Email</p>
+                                <a href="mailto:contact@abdullahalafif.com" class="text-white hover:text-emerald-400 font-medium transition-colors">
+                                    contact@abdullahalafif.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="linkedin" class="text-emerald-400" size="20"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500 text-sm">LinkedIn</p>
+                                <a href="https://www.linkedin.com/in/md-abdullah-al-afif" class="text-white hover:text-emerald-400 font-medium transition-colors">
+                                    linkedin.com/in/md-abdullah-al-afif
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="github" class="text-emerald-400" size="20"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500 text-sm">GitHub</p>
+                                <a href="https://github.com/Md-Abdullah-Al-Afif" class="text-white hover:text-emerald-400 font-medium transition-colors">
+                                    github.com/Md-Abdullah-Al-Afif
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="text-emerald-400" size="20"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500 text-sm">Location</p>
+                                <span class="text-white font-medium">Dhaka, Bangladesh</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex gap-3 pt-4">
+                        <a href="https://www.linkedin.com/in/md-abdullah-al-afif" class="social-icon w-12 h-12 flex items-center justify-center rounded-lg bg-slate-800 border border-slate-700 text-slate-400">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://github.com/Md-Abdullah-Al-Afif" class="social-icon w-12 h-12 flex items-center justify-center rounded-lg bg-slate-800 border border-slate-700 text-slate-400">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://x.com/A_A_Afif" class="social-icon w-12 h-12 flex items-center justify-center rounded-lg bg-slate-800 border border-slate-700 text-slate-400">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.facebook.com/md.abdullahalafif.official" class="social-icon w-12 h-12 flex items-center justify-center rounded-lg bg-slate-800 border border-slate-700 text-slate-400">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-300 mb-2">
+                                Name
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="form-input w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-slate-500"
+                                placeholder="Your name"
+                            />
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-300 mb-2">
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="form-input w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-slate-500"
+                                placeholder="your.email@example.com"
+                            />
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">
+                                Subject
+                            </label>
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                required
+                                class="form-input w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-slate-500"
+                                placeholder="What's this about?"
+                            />
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">
+                                Message
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                required
+                                rows="5"
+                                class="form-input w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-slate-500 resize-none"
+                                placeholder="Your message..."
+                            ></textarea>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 accent-btn font-semibold rounded-lg"
+                        >
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/80 border-t border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-slate-500 text-sm mb-4">
+                    &copy; 2026 MD. ABDULLAH AL AFIF. All rights reserved.
+                </p>
+                <!--<div class="flex justify-center gap-6 text-sm">
+                    <a href="#home" class="text-slate-400 hover:text-emerald-400 transition-colors">
+                        Home
+                    </a>
+                    <a href="#about" class="text-slate-400 hover:text-emerald-400 transition-colors">
+                        About
+                    </a>
+                    <a href="#contact" class="text-slate-400 hover:text-emerald-400 transition-colors">
+                        Contact
+                    </a>
+                </div>-->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Certificate Modal -->
+    <div id="universalCertModal" class="fixed inset-0 hidden bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="relative w-[90%] max-w-2xl mx-auto bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+            <button onclick="closeUniversalCertModal()" class="absolute top-2 right-2 text-slate-300 hover:text-white text-2xl z-50">
+                ✕
+            </button>
+            <img id="universalCertImage" src="" alt="Certificate Full View" class="w-full h-auto max-h-[90vh] object-contain">
+        </div>
+    </div>
+
+
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        lucide.createIcons();
+
+        const navbar = document.getElementById('navbar');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        /* ------------------ NAVBAR SCROLL BACKGROUND + ACTIVE LINK ------------------ */
+        function updateNavbar() {
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-slate-900/95', 'backdrop-blur-lg');
+            } else {
+                navbar.classList.remove('bg-slate-900/95', 'backdrop-blur-lg');
+            }
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${section.id}`) {
+                        if (rect.top <= 80 && rect.bottom >= 80) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        }
+
+        window.addEventListener('scroll', updateNavbar);
+        updateNavbar();
+
+        /* ------------------ MOBILE MENU TOGGLE ------------------ */
+        function openMobileMenu() {
+            mobileNav.classList.remove('hidden');
+            mobileNav.classList.add('fixed','top-0','left-0','w-full','h-screen','flex','flex-col','items-center','justify-center','bg-slate-900','bg-opacity-95','backdrop-blur-sm','z-40','overflow-y-auto');
+            setTimeout(() => mobileNav.classList.add('show'), 20);
+        }
+
+        function closeMobileMenu() {
+            mobileNav.classList.remove('show');
+            setTimeout(() => mobileNav.classList.add('hidden'), 300);
+        }
+
+        mobileBtn?.addEventListener('click', openMobileMenu);
+        mobileCloseBtn?.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close mobile menu when clicking outside menu links
+        mobileNav.addEventListener('click', (e) => {
+            const isLink = e.target.closest('ul');
+            const isCloseBtn = e.target.closest('#mobileCloseBtn');
+            if (!isLink && !isCloseBtn) {
+                closeMobileMenu();
+            }
+        });
+
+        /* ------------------ SHOW MORE / SHOW LESS CERTIFICATES ------------------ */
+        const certCards = Array.from(document.querySelectorAll('.cert-card'));
+        const showMoreBtn = document.getElementById('showMoreCerts');
+        const INITIAL_VISIBLE = 3;
+        let expanded = false;
+
+        certCards.forEach((card, index) => {
+            if (index >= INITIAL_VISIBLE) {
+                card.classList.add('hidden');
+                card.style.opacity = 0;
+            }
+        });
+
+        showMoreBtn?.addEventListener('click', async () => {
+            expanded = !expanded;
+            if (expanded) {
+                for (let i = INITIAL_VISIBLE; i < certCards.length; i++) {
+                    const card = certCards[i];
+                    card.classList.remove('hidden');
+                    await new Promise(r => setTimeout(r, 100));
+                    card.style.transition = 'opacity 0.4s';
+                    card.style.opacity = 1;
+                }
+            } else {
+                for (let i = certCards.length - 1; i >= INITIAL_VISIBLE; i--) {
+                    const card = certCards[i];
+                    card.style.transition = 'opacity 0.4s';
+                    card.style.opacity = 0;
+                    await new Promise(r => setTimeout(r, 100));
+                    card.classList.add('hidden');
+                }
+            }
+            showMoreBtn.textContent = expanded ? 'Show Less' : 'View More Certificates';
+        });
+
+        /* ------------------ UNIVERSAL CERTIFICATE MODAL ------------------ */
+        const universalModal = document.getElementById('universalCertModal');
+        const universalImage = document.getElementById('universalCertImage');
+
+        window.openUniversalCertModal = (buttonElement) => {
+            const thumbImg = buttonElement.closest('.cert-card').querySelector('img');
+            universalImage.src = thumbImg.src;
+            universalModal.classList.remove('hidden');
+            setTimeout(() => universalModal.style.opacity = 1, 20);
+        };
+
+        window.closeUniversalCertModal = () => {
+            universalModal.style.opacity = 0;
+            setTimeout(() => universalModal.classList.add('hidden'), 300);
+        };
+
+        universalModal.addEventListener('click', (e) => {
+            if (e.target === universalModal) closeUniversalCertModal();
+        });
+    });
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
