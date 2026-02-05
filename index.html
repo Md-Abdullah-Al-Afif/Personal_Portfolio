@@ -251,6 +251,7 @@
             70% { box-shadow: 0 0 0 10px rgba(124, 240, 61, 0); }
             100% { box-shadow: 0 0 0 0 rgba(124, 240, 61, 0); }
         }
+        
     </style>
 </head>
 <body>
@@ -366,7 +367,7 @@
                             <i data-lucide="mail" class="w-4 h-4"></i>
                             Get In Touch
                         </a>
-                        <a href="Assets/cv.pdf" id="downloadCV" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#7cf03d]/70 text-[#7cf03d] font-semibold rounded-lg hover:bg-[#7cf03d]/10 transition-all">
+                        <a href="#" id="downloadCV" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#7cf03d]/70 text-[#7cf03d] font-semibold rounded-lg hover:bg-[#7cf03d]/10 transition-all">
                             <i data-lucide="file-text" class="w-4 h-4"></i>
                             Open CV
                         </a>
@@ -1170,8 +1171,36 @@
 
             <!-- Certifications List -->
             <div id="certGrid" class="flex flex-col gap-6">
+                <!-- First 3 certificate will be shown and other certificate will be hiddden -->
+                <!-- Certificate 0 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full1.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/Professional Networking for Career Growth.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">Professional Networking for Career Growth</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/HP_Life.png" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">HP Life</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 5 Feb, 2026 </p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span> 9085176f-fb77-4054-82de-57445787316c</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://www.life-global.org/certificate/9085176f-fb77-4054-82de-57445787316c" class="text-emerald-400 hover:underline">https://www.life-global.org/certificate/9085176f-fb77-4054-82de-57445787316c</a></p>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://www.life-global.org/certificate/9085176f-fb77-4054-82de-57445787316c" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Certificate 1 -->
+                <!--Certificate 1-->
                 <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full1.jpg">
                     <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
                         <img src="Assets/AI+ Prompt Engineer Level 1™.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
@@ -1254,8 +1283,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Hidden Certificates Example -->
                 <!-- Certificate 4 -->
                 <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
                     <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
@@ -1339,6 +1366,60 @@
                 </div>
 
                 <!-- Certificate 7 -->
+                 <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/AI for Beginner.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            AI for Beginners</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/HP_Life.png" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">HP Life</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 16 Jun, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span> : 46a5330f-2129-40ea-ab52-87ebc29689ef</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://www.life-global.org/certificate/46a5330f-2129-40ea-ab52-87ebc29689ef" class="text-emerald-400 hover:underline">https://www.life-global.org/certificate/46a5330f-2129-40ea-ab52-87ebc29689ef</a></p>                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://www.life-global.org/certificate/46a5330f-2129-40ea-ab52-87ebc29689ef" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 8 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/AI Basics.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            Basics of Artificial Intelligence</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/Logo_10_minute_school.png" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">10 Minute School</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 16 Jun, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span> : 685050813573b</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://10minuteschool.com/certificate/685050813573b/" class="text-emerald-400 hover:underline">https://10minuteschool.com/certificate/685050813573b/</a></p>                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://10minuteschool.com/certificate/685050813573b/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 9 -->
                 <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
                     <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
                         <img src="Assets/Achievements _ Microsoft Learn.png" alt="Certificate Thumbnail" class="w-full h-full object-cover">
@@ -1357,6 +1438,116 @@
                             <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://learn.microsoft.com/api/achievements/share/en-us/MdAbdullahAlAfif/9YMGTM6U" class="text-emerald-400 hover:underline">https://learn.microsoft.com/api/achievements/share/en-us/MdAbdullahAlAfif/9YMGTM6U</a></p>                        </div>
                         <div class="flex gap-3">
                             <a href="https://learn.microsoft.com/api/achievements/share/en-us/MdAbdullahAlAfif/9YMGTM6U" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>                
+
+                <!-- Certificate 10 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/Presentation & Public Speaking.jpg" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            Presentation & Public Speaking </h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/Logo_10_minute_school.png" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">10 Minute School</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 11 Jun, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span>6849b8b6dd21d</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://10minuteschool.com/certificate/6849b8b6dd21d/" class="text-emerald-400 hover:underline">https://10minuteschool.com/certificate/6849b8b6dd21d/</a></p>                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://10minuteschool.com/certificate/6849b8b6dd21d/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 11 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/English Grammar Crash Course.jpg" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            English Grammar Crash Course  </h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/Logo_10_minute_school.png" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">10 Minute School</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 11 Jun, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span>6849b640d840b</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://10minuteschool.com/certificate/6849b640d840b/" class="text-emerald-400 hover:underline">https://10minuteschool.com/certificate/6849b640d840b/</a></p>                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://10minuteschool.com/certificate/6849b640d840b/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 12 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/সহজ ভাষায় C Programming.jpg" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            সহজ ভাষায় C Programming  </h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/Logo_10_minute_school.png" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">10 Minute School</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 11 Jun, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span>6849a9ffca650</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://10minuteschool.com/certificate/6849a9ffca650/" class="text-emerald-400 hover:underline">https://10minuteschool.com/certificate/6849a9ffca650/</a></p>                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://10minuteschool.com/certificate/6849a9ffca650/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
+                                Show Credential
+                            </a>
+                            <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 13 -->
+                <div class="cert-card bg-slate-800/60 border border-slate-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 transition-opacity duration-500" data-full="certificate-full3.jpg">
+                    <button onclick="openUniversalCertModal(this)" class="w-28 h-28 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden flex-shrink-0 hover:opacity-80 transition">
+                        <img src="Assets/Data Entry দিয়ে Freelancing.jpg" alt="Certificate Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                    <div class="flex-1">
+                        <h3 class="text-white text-lg font-semibold mb-1">
+                            Data Entry দিয়ে Freelancing  </h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="Assets/Logo_10_minute_school.png" alt="Provider Logo" class="w-6 h-6 rounded">
+                            <span class="text-slate-400 text-sm">10 Minute School</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-y-1 text-sm text-slate-400 mb-4">
+                            <p><span class="text-slate-500">Issued:</span> 11 Jun, 2025</p>
+                            <p><span class="text-slate-500">Expires:</span> No Expiration</p>
+                            <p><span class="text-slate-500">Credential ID:</span>6849a4ec615c7</p>
+                            <p class="truncate"><span class="text-slate-500">Credential URL:</span> <a href="https://10minuteschool.com/certificate/6849a4ec615c7/" class="text-emerald-400 hover:underline">https://10minuteschool.com/certificate/6849a4ec615c7/</a></p>                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://10minuteschool.com/certificate/6849a4ec615c7/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition">
                                 Show Credential
                             </a>
                             <button onclick="openUniversalCertModal(this)" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 transition">
@@ -1752,6 +1943,7 @@
                             <i data-lucide="facebook" class="w-5 h-5"></i>
                         </a>
                     </div>
+                    
                 </div>
 
                 <!-- Contact Form -->
@@ -1838,8 +2030,6 @@
                         </button>
                     </form>
                 </div>
-
-                
             </div>
         </div>
     </section>
@@ -1848,7 +2038,10 @@
     <footer class="bg-slate-900/80 border-t border-slate-800 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
+                <!--Last Update Time-->
+                
                 <p class="text-slate-500 text-sm mb-4">
+                    <span class="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-emerald-400 text-xs font-medium">Last Updated: 6 Feb, 2026</span>
                     &copy; 2026 MD. ABDULLAH AL AFIF. All rights reserved.
                 </p>
                 <!--<div class="flex justify-center gap-6 text-sm">
