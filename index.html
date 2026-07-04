@@ -251,6 +251,148 @@
             70% { box-shadow: 0 0 0 10px rgba(124, 240, 61, 0); }
             100% { box-shadow: 0 0 0 0 rgba(124, 240, 61, 0); }
         }
+
+        /* ========================================
+        Portfolio Notice Banner
+        ======================================== */
+
+        .portfolio-notice {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15,23,42,.97);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            z-index: 9999;
+            transform: translateY(-100%);
+            transition: .35s ease;
+        }
+
+        .portfolio-notice.show{
+            transform: translateY(0);
+        }
+
+        .portfolio-notice-content{
+            max-width:1200px;
+            margin:auto;
+            padding:16px 20px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:20px;
+        }
+
+        .notice-left{
+            display:flex;
+            gap:16px;
+            align-items:flex-start;
+        }
+
+        .notice-icon{
+            font-size:30px;
+            flex-shrink:0;
+        }
+
+        .notice-title{
+            color:#fff;
+            font-size:18px;
+            font-weight:700;
+            margin-bottom:6px;
+        }
+
+        .notice-text{
+            color:#CBD5E1;
+            line-height:1.6;
+            font-size:15px;
+        }
+
+        .notice-actions{
+            display:flex;
+            gap:12px;
+            align-items:center;
+            flex-shrink:0;
+        }
+
+        .notice-btn{
+            background:#10B981;
+            color:#fff;
+            padding:12px 22px;
+            border-radius:10px;
+            text-decoration:none;
+            font-weight:600;
+            transition:.25s;
+            white-space:nowrap;
+        }
+
+        .notice-btn:hover{
+            background:#059669;
+            transform:translateY(-2px);
+        }
+
+        .notice-badge{
+            padding:8px 14px;
+            border-radius:999px;
+            border:1px solid rgba(255,255,255,.15);
+            color:#CBD5E1;
+            font-size:13px;
+            white-space:nowrap;
+        }
+
+        .notice-close{
+            background:none;
+            border:none;
+            color:#fff;
+            cursor:pointer;
+            font-size:24px;
+            line-height:1;
+            padding:4px;
+        }
+
+        body.notice-visible{
+            padding-top:110px;
+        }
+
+        @media(max-width:768px){
+
+        .portfolio-notice-content{
+            flex-direction:column;
+            align-items:flex-start;
+        }
+
+        .notice-actions{
+            width:100%;
+            flex-wrap:wrap;
+        }
+
+        .notice-btn{
+            width:100%;
+            text-align:center;
+        }
+
+        .notice-badge{
+            order:2;
+        }
+
+        .notice-close{
+            position:absolute;
+            top:12px;
+            right:12px;
+        }
+
+        body.notice-visible{
+            padding-top:180px;
+        }
+
+        .notice-title{
+            font-size:17px;
+        }
+
+        .notice-text{
+            font-size:14px;
+        }
+
+        }        
         
     </style>
 </head>
@@ -1856,11 +1998,63 @@
         </div>
     </div>
 
+    <div id="portfolioNotice" class="portfolio-notice">
 
+        <div class="portfolio-notice-content">
+
+            <div class="notice-left">
+
+                <div class="notice-icon">
+                    🚀
+                </div>
+
+                <div>
+
+                    <div class="notice-title">
+                        A New Portfolio is Available
+                    </div>
+
+                    <div class="notice-text">
+                        You're viewing my previous portfolio, which is preserved as an archived project to showcase my earlier work and design.
+                        It is no longer actively maintained.
+                        Visit my latest portfolio to explore my newest projects, skills, and experience.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="notice-actions">
+
+                
+
+                <a
+                    class="notice-btn"
+                    href="https://mdabdullahalafif.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Visit Latest Portfolio
+                </a>
+
+                <button
+                    class="notice-close"
+                    id="closePortfolioNotice"
+                    aria-label="Close"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
+
         lucide.createIcons();
 
         const navbar = document.getElementById('navbar');
@@ -1871,8 +2065,35 @@
         const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
         const sections = document.querySelectorAll('section[id]');
 
+        /* ------------------ PORTFOLIO NOTICE ------------------ */
+
+        const notice = document.getElementById("portfolioNotice");
+        const closeNoticeBtn = document.getElementById("closePortfolioNotice");
+
+        if (notice && closeNoticeBtn) {
+
+            if (!localStorage.getItem("portfolioNoticeDismissed")) {
+
+                notice.classList.add("show");
+                document.body.classList.add("notice-visible");
+
+            }
+
+            closeNoticeBtn.addEventListener("click", function () {
+
+                notice.classList.remove("show");
+                document.body.classList.remove("notice-visible");
+
+                localStorage.setItem("portfolioNoticeDismissed", "true");
+
+            });
+
+        }
+
         /* ------------------ NAVBAR SCROLL BACKGROUND + ACTIVE LINK ------------------ */
+
         function updateNavbar() {
+
             if (window.scrollY > 20) {
                 navbar.classList.add('bg-slate-900/95', 'backdrop-blur-lg');
             } else {
@@ -1880,122 +2101,225 @@
             }
 
             sections.forEach(section => {
+
                 const rect = section.getBoundingClientRect();
+
                 navLinks.forEach(link => {
+
                     if (link.getAttribute('href') === `#${section.id}`) {
+
                         if (rect.top <= 80 && rect.bottom >= 80) {
                             link.classList.add('active');
                         } else {
                             link.classList.remove('active');
                         }
+
                     }
+
                 });
+
             });
+
         }
 
         window.addEventListener('scroll', updateNavbar);
         updateNavbar();
 
-        /* ------------------ MOBILE MENU TOGGLE ------------------ */
+        /* ------------------ MOBILE MENU ------------------ */
+
         function openMobileMenu() {
+
             mobileNav.classList.remove('hidden');
-            mobileNav.classList.add('fixed','top-0','left-0','w-full','h-screen','flex','flex-col','items-center','justify-center','bg-slate-900','bg-opacity-95','backdrop-blur-sm','z-40','overflow-y-auto');
-            setTimeout(() => mobileNav.classList.add('show'), 20);
+
+            mobileNav.classList.add(
+                'fixed',
+                'top-0',
+                'left-0',
+                'w-full',
+                'h-screen',
+                'flex',
+                'flex-col',
+                'items-center',
+                'justify-center',
+                'bg-slate-900',
+                'bg-opacity-95',
+                'backdrop-blur-sm',
+                'z-40',
+                'overflow-y-auto'
+            );
+
+            setTimeout(() => {
+                mobileNav.classList.add('show');
+            }, 20);
+
         }
 
         function closeMobileMenu() {
+
             mobileNav.classList.remove('show');
-            setTimeout(() => mobileNav.classList.add('hidden'), 300);
+
+            setTimeout(() => {
+                mobileNav.classList.add('hidden');
+            }, 300);
+
         }
 
         mobileBtn?.addEventListener('click', openMobileMenu);
         mobileCloseBtn?.addEventListener('click', closeMobileMenu);
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
+
             link.addEventListener('click', closeMobileMenu);
+
         });
 
-        // Close mobile menu when clicking outside menu links
         mobileNav.addEventListener('click', (e) => {
+
             const isLink = e.target.closest('ul');
             const isCloseBtn = e.target.closest('#mobileCloseBtn');
+
             if (!isLink && !isCloseBtn) {
+
                 closeMobileMenu();
+
             }
+
         });
 
-        /* ------------------ SHOW MORE / SHOW LESS CERTIFICATES ------------------ */
+        /* ------------------ SHOW MORE CERTIFICATES ------------------ */
+
         const certCards = Array.from(document.querySelectorAll('.cert-card'));
         const showMoreBtn = document.getElementById('showMoreCerts');
+
         const INITIAL_VISIBLE = 3;
+
         let expanded = false;
 
         certCards.forEach((card, index) => {
+
             if (index >= INITIAL_VISIBLE) {
+
                 card.classList.add('hidden');
                 card.style.opacity = 0;
+
             }
+
         });
 
         showMoreBtn?.addEventListener('click', async () => {
+
             expanded = !expanded;
+
             if (expanded) {
+
                 for (let i = INITIAL_VISIBLE; i < certCards.length; i++) {
+
                     const card = certCards[i];
+
                     card.classList.remove('hidden');
-                    await new Promise(r => setTimeout(r, 100));
-                    card.style.transition = 'opacity 0.4s';
+
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
+                    card.style.transition = 'opacity .4s';
                     card.style.opacity = 1;
+
                 }
+
             } else {
+
                 for (let i = certCards.length - 1; i >= INITIAL_VISIBLE; i--) {
+
                     const card = certCards[i];
-                    card.style.transition = 'opacity 0.4s';
+
+                    card.style.transition = 'opacity .4s';
                     card.style.opacity = 0;
-                    await new Promise(r => setTimeout(r, 100));
+
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
                     card.classList.add('hidden');
+
                 }
+
             }
-            showMoreBtn.textContent = expanded ? 'Show Less' : 'View More Certificates';
+
+            showMoreBtn.textContent = expanded
+                ? 'Show Less'
+                : 'View More Certificates';
+
         });
 
         /* ------------------ UNIVERSAL CERTIFICATE MODAL ------------------ */
+
         const universalModal = document.getElementById('universalCertModal');
         const universalImage = document.getElementById('universalCertImage');
 
-        window.openUniversalCertModal = (buttonElement) => {
-            const thumbImg = buttonElement.closest('.cert-card').querySelector('img');
+        window.openUniversalCertModal = function (buttonElement) {
+
+            const thumbImg = buttonElement
+                .closest('.cert-card')
+                .querySelector('img');
+
             universalImage.src = thumbImg.src;
+
             universalModal.classList.remove('hidden');
-            setTimeout(() => universalModal.style.opacity = 1, 20);
+
+            setTimeout(() => {
+
+                universalModal.style.opacity = 1;
+
+            }, 20);
+
         };
 
-        window.closeUniversalCertModal = () => {
+        window.closeUniversalCertModal = function () {
+
             universalModal.style.opacity = 0;
-            setTimeout(() => universalModal.classList.add('hidden'), 300);
+
+            setTimeout(() => {
+
+                universalModal.classList.add('hidden');
+
+            }, 300);
+
         };
 
-        universalModal.addEventListener('click', (e) => {
-            if (e.target === universalModal) closeUniversalCertModal();
+        universalModal?.addEventListener('click', function (e) {
+
+            if (e.target === universalModal) {
+
+                closeUniversalCertModal();
+
+            }
+
         });
 
-        /* ------------------ CONTACT FORM SUCCESS + RESET ------------------ */
+        /* ------------------ CONTACT FORM ------------------ */
+
         const contactForm = document.getElementById('contactForm');
         const formSuccess = document.getElementById('formSuccess');
 
         if (contactForm) {
-            contactForm.addEventListener('submit', () => {
+
+            contactForm.addEventListener('submit', function () {
+
                 setTimeout(() => {
-                    contactForm.reset();                 // Clear all inputs
-                    formSuccess.classList.remove('hidden'); // Show success text
+
+                    contactForm.reset();
+
+                    formSuccess.classList.remove('hidden');
 
                     setTimeout(() => {
+
                         formSuccess.classList.add('hidden');
+
                     }, 5000);
+
                 }, 800);
+
             });
-        }        
+
+        }
+
     });
     </script>
 
